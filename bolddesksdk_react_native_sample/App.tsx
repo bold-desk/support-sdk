@@ -6,7 +6,7 @@ import { enableScreens } from "react-native-screens";
 import ProfileScreen from "./components/profile";
 import Investment from "./components/investment";
 import Home from "./components/home";
-import BoldDeskSupportSDK from "bd-support-sdk-react-native";
+import BoldDeskSupportSDK from "bolddesk_support_sdk";
 import { loginWithJwtIfNeeded } from "./Auth";
 
 enableScreens();

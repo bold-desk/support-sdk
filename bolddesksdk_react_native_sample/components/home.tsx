@@ -3,7 +3,7 @@ import { View } from "react-native";
 import { useNavigation } from "@react-navigation/native";
 import FinanceManagement from "./finance-management";
 import FloatingNavBar from "./floating-nav-bar";
-import BoldDeskSupportSDK from "bd-support-sdk-react-native";
+import BoldDeskSupportSDK from "bolddesk_support_sdk";
 
 export default function Home() {
     const navigation = useNavigation();
