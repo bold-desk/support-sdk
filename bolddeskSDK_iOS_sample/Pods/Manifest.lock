@@ -1,0 +1,16 @@
+PODS:
+  - bolddesk_support_sdk (1.0.0)
+
+DEPENDENCIES:
+  - bolddesk_support_sdk (~> 1.0.0)
+
+SPEC REPOS:
+  trunk:
+    - bolddesk_support_sdk
+
+SPEC CHECKSUMS:
+  bolddesk_support_sdk: d206bc3b362289abd6c92d9acc800fa0494fc967
+
+PODFILE CHECKSUM: a4bf7d67a8488750c14f2e3aaa02e63583974104
+
+COCOAPODS: 1.16.2
