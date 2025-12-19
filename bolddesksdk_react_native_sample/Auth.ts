@@ -1,5 +1,5 @@
 import { sign } from "react-native-pure-jwt";
-import BoldDeskSupportSDK from "bd-support-sdk-react-native";
+import BoldDeskSupportSDK from "bolddesk_support_sdk";
 
 async function buildJwt(secretKey: String, email: String): Promise<string> {
     const currentTime = Math.floor(Date.now() / 1000); // seconds since epoch

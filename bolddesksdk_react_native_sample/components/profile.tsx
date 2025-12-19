@@ -3,7 +3,7 @@ import { View, Text, Image, ScrollView, TouchableOpacity } from "react-native";
 import { IMAGES } from "../constants/constants";
 import styles from "../styles/profile-styles";
 import { useNavigation } from "@react-navigation/native";
-import BoldDeskSupportSDK from "bd-support-sdk-react-native";
+import BoldDeskSupportSDK from "bolddesk_support_sdk";
 
 export default function ProfileScreen() {
   const navigation = useNavigation();
