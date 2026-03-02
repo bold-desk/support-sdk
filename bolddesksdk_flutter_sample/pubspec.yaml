@@ -101,6 +101,7 @@ flutter:
     - assets/images/stock2.png
     - assets/images/stock3.png
     - assets/images/stock4.png
+    - assets/images/bold-desk-logo_v1.png
 
 
   # An image asset can refer to one or more resolution-specific "variants", see
