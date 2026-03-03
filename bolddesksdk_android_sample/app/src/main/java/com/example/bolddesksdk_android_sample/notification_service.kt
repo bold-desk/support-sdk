@@ -2,6 +2,7 @@ package com.example.bolddesksdk_android_sample
 
 import android.content.Context
 import android.util.Log
+import androidx.core.graphics.drawable.IconCompat
 import com.google.android.gms.tasks.OnCompleteListener
 import com.google.firebase.FirebaseApp
 import com.google.firebase.messaging.FirebaseMessaging
@@ -18,7 +19,10 @@ class NotificationService : FirebaseMessagingService() {
             BoldDeskSupportSDK.handlePushNotifications(
                 this,
                 remoteMessage.getData(),
-                icon = com.syncfusion.bolddeskmobileSDK.R.drawable.bolddesk_logo
+                icon = IconCompat.createWithResource(
+                    this,
+                    com.syncfusion.bolddeskmobileSDK.R.drawable.bolddesk_logo
+                )
             )
         }
     }
