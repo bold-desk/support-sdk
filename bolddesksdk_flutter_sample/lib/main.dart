@@ -1,5 +1,6 @@
 import 'dart:io';
 
+import 'package:bd_chat_sdk/bd_chat_sdk.dart';
 import 'package:bolddesksdk_flutter_sample/app.dart';
 import 'package:bolddesksdk_flutter_sample/firebase_options.dart';
 import 'package:bolddesksdk_flutter_sample/notification_service.dart';
@@ -30,6 +31,9 @@ Future<void> main() async {
   if (Platform.isIOS) {
     FirebaseMessaging.instance.getInitialMessage().then((message) async {
       if (message != null) {
+        if (await BoldDeskChatSDK.isFromChatSDK(message.data)) {
+          BoldDeskChatSDK.handleiOSPushNotification(message.data);
+        }
         // BoldDeskSupportSDK.handleNotification(message.data);
       }
     });
