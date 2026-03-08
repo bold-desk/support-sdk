@@ -1,4 +1,5 @@
 import 'dart:io';
+import 'package:bd_chat_sdk/bd_chat_sdk.dart';
 import 'package:bd_support_sdk/bolddesk_support_sdk.dart';
 import 'package:firebase_messaging/firebase_messaging.dart';
 
@@ -30,6 +31,11 @@ class NotificationService {
           message.data,
           "sample_app_logo",
         );
+      } else if (await BoldDeskChatSDK.isFromChatSDK(message.data)) {
+        BoldDeskChatSDK.handleAndroidNotification(
+          message.data,
+          "sample_app_logo",
+        );
       }
     }
   }
@@ -41,6 +47,7 @@ class NotificationService {
   static Future<void> getFCMToken() async {
     final fcmToken = await FirebaseMessaging.instance.getToken();
     BoldDeskSupportSDK.setFCMRegistrationToken(fcmToken ?? "");
+    BoldDeskChatSDK.enablePushNotification(fcmToken ?? "");
   }
 
   static void onMessage() {
@@ -49,6 +56,11 @@ class NotificationService {
         // Icon should be Drawable source
         if (await BoldDeskSupportSDK.isFromMobileSDK(message.data)) {
           BoldDeskSupportSDK.handleAndroidNotification(
+            message.data,
+            "assets/images/bold-desk-logo_v1.png",
+          );
+        } else if (await BoldDeskChatSDK.isFromChatSDK(message.data)) {
+          BoldDeskChatSDK.handleAndroidNotification(
             message.data,
             "assets/images/bold-desk-logo_v1.png",
           );

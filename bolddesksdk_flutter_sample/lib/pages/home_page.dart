@@ -1,3 +1,4 @@
+import 'package:bd_chat_sdk/bd_chat_sdk.dart';
 import 'package:bd_support_sdk/bolddesk_support_sdk.dart';
 import 'package:bolddesksdk_flutter_sample/data/market_data.dart';
 import 'package:bolddesksdk_flutter_sample/models/periodenum.dart';
@@ -27,6 +28,7 @@ class _HomePageState extends State<HomePage> {
       case 0:
         break;
       case 1:
+        BoldDeskChatSDK.showChat();
         break;
       case 2:
         BoldDeskSupportSDK.showHome();
@@ -70,6 +72,7 @@ class _HomePageState extends State<HomePage> {
       },
       onError: (error) {},
     );
+    await BoldDeskChatSDK.initialize("YOUR_APP_KEY", "YOUR_BRAND_URL");
   }
 
   String _chartAssetForPeriod(String p) {

@@ -1,8 +1,12 @@
 PODS:
-  - bd-support-library (1.0.6)
-  - bolddesk_support_sdk (1.0.0):
-    - bd-support-library (~> 1.0.6)
+  - bd_chat_sdk (0.0.1):
+    - bolddesk_chat_sdk (~> 1.0.2)
     - Flutter
+  - bd_support_sdk (1.0.0):
+    - bolddesk_support_sdk (~> 1.0.5)
+    - Flutter
+  - bolddesk_chat_sdk (1.0.2)
+  - bolddesk_support_sdk (1.0.5)
   - Firebase/CoreOnly (12.4.0):
     - FirebaseCore (~> 12.4.0)
   - Firebase/Messaging (12.4.0):
@@ -71,14 +75,16 @@ PODS:
   - PromisesObjC (2.4.0)
 
 DEPENDENCIES:
-  - bolddesk_support_sdk (from `.symlinks/plugins/bolddesk_support_sdk/ios`)
+  - bd_chat_sdk (from `.symlinks/plugins/bd_chat_sdk/ios`)
+  - bd_support_sdk (from `.symlinks/plugins/bd_support_sdk/ios`)
   - firebase_core (from `.symlinks/plugins/firebase_core/ios`)
   - firebase_messaging (from `.symlinks/plugins/firebase_messaging/ios`)
   - Flutter (from `Flutter`)
 
 SPEC REPOS:
   trunk:
-    - bd-support-library
+    - bolddesk_chat_sdk
+    - bolddesk_support_sdk
     - Firebase
     - FirebaseCore
     - FirebaseCoreInternal
@@ -90,8 +96,10 @@ SPEC REPOS:
     - PromisesObjC
 
 EXTERNAL SOURCES:
-  bolddesk_support_sdk:
-    :path: ".symlinks/plugins/bolddesk_support_sdk/ios"
+  bd_chat_sdk:
+    :path: ".symlinks/plugins/bd_chat_sdk/ios"
+  bd_support_sdk:
+    :path: ".symlinks/plugins/bd_support_sdk/ios"
   firebase_core:
     :path: ".symlinks/plugins/firebase_core/ios"
   firebase_messaging:
@@ -100,11 +108,13 @@ EXTERNAL SOURCES:
     :path: Flutter
 
 SPEC CHECKSUMS:
-  bd-support-library: 2b6e3ad238739c83abdb0b4320a141f8a1f3455d
-  bolddesk_support_sdk: a50b624d41adf85099107be5bd41ccd7bc3cbaa1
+  bd_chat_sdk: 1e79cb2736142db0b180fb1e67fb2049e3587c1e
+  bd_support_sdk: 774f0ee7db7c471263e1e85d4e563718d1694f7b
+  bolddesk_chat_sdk: aeadf5509d709204402fec7991d1f8125da7bb7a
+  bolddesk_support_sdk: 1ec0dd3ad6b2b757a96ff1a3f176706ef3508d1a
   Firebase: f07b15ae5a6ec0f93713e30b923d9970d144af3e
-  firebase_core: f1aafb21c14f497e5498f7ffc4dc63cbb52b2594
-  firebase_messaging: c17a29984eafce4b2997fe078bb0a9e0b06f5dde
+  firebase_core: e6b8bb503b7d1d9856e698d4f193f7b414e6bf1f
+  firebase_messaging: fc7b6af84f4cd885a4999f51ea69ef20f380d70d
   FirebaseCore: bb595f3114953664e3c1dc032f008a244147cfd3
   FirebaseCoreInternal: d7f5a043c2cd01a08103ab586587c1468047bca6
   FirebaseInstallations: ae9f4902cb5bf1d0c5eaa31ec1f4e5495a0714e2
