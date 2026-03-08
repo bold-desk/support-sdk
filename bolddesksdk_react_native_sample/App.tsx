@@ -8,6 +8,7 @@ import Investment from "./components/investment";
 import Home from "./components/home";
 import BoldDeskSupportSDK from "bolddesk_support_sdk";
 import { loginWithJwtIfNeeded } from "./Auth";
+import BoldDeskChatSDK from "bolddesk_chat_sdk";
 
 enableScreens();
 
@@ -30,6 +31,7 @@ export default function App() {
         },
         (error) => console.log("Init error:", error)
       );
+      await BoldDeskChatSDK.configure("ios_sdk_3fjuf2kjeStzIn6LlRCphNsE7RnOUNTCE4qxMF2chk", "https://dev-chat-integration.bolddesk.com");
     } catch (e) {
       console.error("App init failed", e);
     }

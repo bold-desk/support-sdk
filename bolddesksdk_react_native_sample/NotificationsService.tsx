@@ -3,6 +3,7 @@ import { Image, PermissionsAndroid, Platform } from 'react-native';
 import { BoldDeskSupportSDK } from 'bolddesk_support_sdk';
 import { ToastAndroid } from 'react-native';
 import { IMAGES } from "../constants/constants";
+import BoldDeskChatSDK from 'bolddesk_chat_sdk';
 
 async function requestUserPermission() {
   if (Platform.OS === 'android') {
@@ -35,6 +36,7 @@ async function getDeviceToken() {
     console.log('FCM Device Token:', fcmToken);
     // You should save this token to your backend server for sending notifications
     BoldDeskSupportSDK.setFCMRegistrationToken(fcmToken)
+    BoldDeskChatSDK.setFCMRegistrationToken(fcmToken)
   } else {
     console.log('Failed to get FCM token');
   }
@@ -44,6 +46,9 @@ function setupForegroundNotificationHandler() {
   messaging().onMessage(async remoteMessage => {
     console.log('Foreground Message:', remoteMessage);
     if (await BoldDeskSupportSDK.isFromMobileSDK(remoteMessage.data ?? {})) { BoldDeskSupportSDK.showNotification(IMAGES.BOLDDESK_LOGO, remoteMessage.data) }
+    if (await BoldDeskChatSDK.isFromChatSDK(remoteMessage.data ?? {})) {
+      BoldDeskChatSDK.handlePushNotifications(require('../assets/images/bold-desk-logo_v1.png'), remoteMessage.data)
+    }
   });
 }
 
@@ -78,11 +83,17 @@ export async function setupIosNotificationTapHandler() {
     if (await BoldDeskSupportSDK.isFromMobileSDK(remoteMessage.data ?? {})) {
       BoldDeskSupportSDK.handleNotification(remoteMessage.data);
     }
+    else if (await BoldDeskChatSDK.isFromChatSDK(remoteMessage.data ?? {})){
+      BoldDeskChatSDK.handleiOSPushNotification(remoteMessage.data ?? {})
+    }
   });
   // Handle notification tap when app was terminated
   const initialNotification = await messaging().getInitialNotification();
   if (initialNotification?.data) {
     await new Promise<void>(resolve => setTimeout(resolve, 500));
     BoldDeskSupportSDK.handleNotification(initialNotification.data);
+    if (await BoldDeskChatSDK.isFromChatSDK(initialNotification.data ?? {})){
+      BoldDeskChatSDK.handleiOSPushNotification(initialNotification.data ?? {})
+    }
   }
 }
