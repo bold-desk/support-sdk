@@ -5,7 +5,7 @@ import 'package:firebase_messaging/firebase_messaging.dart';
 @pragma("vm:entry-point")
 class NotificationService {
   // Initialize FirebaseMessingService to listen Messages
-  static firebaseMessagingInitialize() {
+  static void firebaseMessagingInitialize() {
     onBackgroundMessage();
     onMessage();
 
@@ -43,14 +43,14 @@ class NotificationService {
     BoldDeskSupportSDK.setFCMRegistrationToken(fcmToken ?? "");
   }
 
-  static onMessage() {
+  static void onMessage() {
     FirebaseMessaging.onMessage.listen((message) async {
       if (Platform.isAndroid) {
         // Icon should be Drawable source
         if (await BoldDeskSupportSDK.isFromMobileSDK(message.data)) {
           BoldDeskSupportSDK.handleAndroidNotification(
             message.data,
-            "sample_app_logo",
+            "assets/images/bold-desk-logo_v1.png",
           );
         }
       }

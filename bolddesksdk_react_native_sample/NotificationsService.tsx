@@ -1,7 +1,8 @@
 import messaging, { firebase } from '@react-native-firebase/messaging';
-import { PermissionsAndroid, Platform } from 'react-native';
+import { Image, PermissionsAndroid, Platform } from 'react-native';
 import { BoldDeskSupportSDK } from 'bolddesk_support_sdk';
 import { ToastAndroid } from 'react-native';
+import { IMAGES } from "../constants/constants";
 
 async function requestUserPermission() {
   if (Platform.OS === 'android') {
@@ -42,7 +43,7 @@ async function getDeviceToken() {
 function setupForegroundNotificationHandler() {
   messaging().onMessage(async remoteMessage => {
     console.log('Foreground Message:', remoteMessage);
-    if (await BoldDeskSupportSDK.isFromMobileSDK(remoteMessage.data ?? {})) { BoldDeskSupportSDK.showNotification("sample_app_logo", remoteMessage.data) }
+    if (await BoldDeskSupportSDK.isFromMobileSDK(remoteMessage.data ?? {})) { BoldDeskSupportSDK.showNotification(IMAGES.BOLDDESK_LOGO, remoteMessage.data) }
   });
 }
 

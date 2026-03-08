@@ -44,6 +44,7 @@ export const IMAGES = {
     HISTORY: require("../assets/images/History.png"),
     SETTING: require("../assets/images/Setting.png"),
     HELP: require("../assets/images/Help.png"),
+    BOLDDESK_LOGO: require('./assets/images/bold-desk-logo_v1.png'),
 };
 
 export const PAGE_PADDING = 20;
