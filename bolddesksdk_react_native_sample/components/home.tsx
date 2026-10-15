@@ -21,7 +21,7 @@ export default function Home() {
                         navigation.navigate("Profile");
                     } else if (tab === "chat") {
                         // @ts-ignore - navigation type inferred for simplicity
-                        BoldDeskChatSDK.showChat()
+                        BoldDeskChatSDK.showChat();
                     } 
                     else {
                         console.log("Selected Tab:", tab);
